@@ -9,7 +9,7 @@ CXX := g++
 SRC := $(shell find . -name '*.cc')
 OBJ := $(SRC:%.cc=$(BUILD)/%.o)
 DEP := $(OBJ:.o=.d)
-EXE := $(BUILD)/bottom_up_heap_construction_m
+EXE := $(OBJ:.o=)
 
 all: directories $(EXE)
 

@@ -9,7 +9,7 @@ CXX := g++
 SRC := $(shell find . -name '*.cc')
 OBJ := $(SRC:%.cc=$(BUILD)/%.o)
 DEP := $(OBJ:.o=.d)
-EXE := $(BUILD)/adapt_pq_location_aware_m
+EXE := $(OBJ:.o=)
 
 all: directories $(EXE)
 

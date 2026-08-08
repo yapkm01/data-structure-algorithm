@@ -9,7 +9,7 @@ CXX := g++
 SRC := $(shell find . -name '*.cc')
 OBJ := $(SRC:%.cc=$(BUILD)/%.o)
 DEP := $(OBJ:.o=.d)
-EXE := $(BUILD)/list
+EXE := $(OBJ:.o=)
 
 all: directories $(EXE)
 

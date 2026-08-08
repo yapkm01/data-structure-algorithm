@@ -4,12 +4,12 @@
 
 BUILD := build
 INC := -Iinclude
-CXXFLAG := -std=c++20 $(INC)
+CXXFLAG := -g -std=c++20 $(INC)
 CXX := g++
 SRC := $(shell find . -name '*.cc')
 OBJ := $(SRC:%.cc=$(BUILD)/%.o)
 DEP := $(OBJ:.o=.d)
-EXE := $(BUILD)/hashcode_folding
+EXE := $(OBJ:.o=)
 
 all: directories $(EXE)
 
