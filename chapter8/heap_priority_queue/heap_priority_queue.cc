@@ -1,6 +1,6 @@
 #include <iostream>
-#include "heap_priority_queue.h"
-#include "comparator.h"
+#include "include/heap_priority_queue.h"
+#include "include/comparator.h"
 using namespace std;
 
 int main() {

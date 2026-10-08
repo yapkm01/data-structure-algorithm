@@ -1,5 +1,5 @@
 #include <iostream>
-#include "linked_binary_tree.h"
+#include "include/linked_binary_tree.h"
 using namespace std;
 
 int LinkedBinaryTree::size() const {

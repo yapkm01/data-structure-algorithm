@@ -1,6 +1,6 @@
 #include <iostream>
 #include <list>
-#include "linked_binary_tree.h"
+#include "include/linked_binary_tree.h"
 using namespace std;
 
 LinkedBinaryTree::LinkedBinaryTree(): _root(nullptr), n(0) {}

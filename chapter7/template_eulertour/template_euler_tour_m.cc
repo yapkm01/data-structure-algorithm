@@ -1,8 +1,8 @@
 #include <iostream>
-#include "euler_tour.h"
-#include "linked_binary_tree.h"
-#include "print_expression_tour.h"
-#include "evaluate_expression_tour.h"
+#include "include/euler_tour.h"
+#include "include/linked_binary_tree.h"
+#include "include/print_expression_tour.h"
+#include "include/evaluate_expression_tour.h"
 using namespace std;
 
 int main() {

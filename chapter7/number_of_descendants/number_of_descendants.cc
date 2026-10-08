@@ -1,5 +1,5 @@
 #include <iostream>
-#include "number_of_descendants.h"
+#include "include/number_of_descendants.h"
 using namespace std;
 
 void NumberOfDescendants::eulerTour(const Position& p, int& globalCnt) const {

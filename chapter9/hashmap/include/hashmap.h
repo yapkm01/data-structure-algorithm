@@ -1,29 +1,53 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef HASHMAP_H
+#define HASHMAP_H
 
 #include <list>
+#include <exception>
 #include <fmt/core.h>
+#include <map>
+#include <vector>
 #include <stdexcept>
+#include "entry.h"
 
-template <typename K, typename V>
-class ListBasedMap {
+template <typename K, typename V, typename H>
+class HashMap {
 	public:
-		class Entry {
-			public:
-				Entry(const K& k = K(), const V& v = V()) : _key(k), _value(v) {}
-				const K& key() const {return _key;}
-				const V& value() const {return _value;}
-				void setKey(const K& k) {_key = k;}
-				void setValue(const V& v) {_value = v;}
+		typedef Entry<K,V> Entry;
+		class Iterator;
 
-				friend std::ostream& operator<<(std::ostream& os, const Entry& p) {
-					return os << p._key << ": " << p._value;
-				}
-			private:
-				K _key;
-				V _value;
-		};
+		HashMap(int capacity=100);
+		int size() const;
+		bool empty() const;
+		Iterator find(const K& k);
+		Iterator put(const K&, const V& v);
+		void erase(const K& k);
+		void erase(const Iterator& i);
+		Iterator begin();
+		Iterator end();
 
+	protected:
+		typedef std::list<Entry> Bucket;
+		typedef std::vector<Bucket> BktArray;
+		typedef typename BktArray::iterator BItor;
+		typedef typename Bucket::iterator EItor;
+
+		Iterator finder(const K& k);
+		Iterator inserter(const Iterator& p, const Entry& e);
+		void eraser(const Iterator& p);
+
+		static void nextEntry(Iterator& p) {
+			++p.ent;
+		}
+		static bool endOfBkt(const Iterator& p) {
+			return p.ent == p.bkt->end();
+		}
+
+	private:
+		int n;
+		H hash;
+		BktArray B;
+
+	public:	
 		class Iterator {
 			public:
 				Iterator() = default;
